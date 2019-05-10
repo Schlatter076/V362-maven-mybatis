@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="v362.mapper">
+
+  <!-- 获取测试ok产品编号 -->
+  <select id="v362-selectByNum" parameterType="java.lang.String"
+    resultType="V362ProductNum">
+    SELECT * FROM v362_product_num WHERE num=#{num}
+  </select>
+  <!-- 插入测试OK的产品编号 -->
+  <insert id="v362-insertProductNum"
+    parameterType="V362ProductNum">
+    INSERT INTO v362_product_num(num) VALUES(#{num})
+  </insert>
+
+</mapper>

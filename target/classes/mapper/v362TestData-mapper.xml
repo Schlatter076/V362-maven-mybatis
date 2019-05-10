@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="v362.mapper">
+
+  <!-- 获取一天的测试数据 -->
+  <select id="v362-selectOneDayTestDatas"
+    parameterType="java.lang.String" resultType="V362TestData">
+    SELECT * FROM
+    v362_testdata WHERE date=#{recordtime}
+  </select>
+  <!-- 获取对应id的步骤数 -->
+  <select id="v362-getItemNumById"
+    parameterType="java.math.BigInteger" resultType="java.lang.String">
+    SELECT num FROM
+    v362_testdata WHERE id=#{id}
+  </select>
+  <!-- 获取对应id的产品编号 -->
+  <select id="v362-getProductNumById"
+    parameterType="java.math.BigInteger" resultType="java.lang.String">
+    SELECT product_num
+    FROM v362_testdata WHERE id=#{id}
+  </select>
+  <!-- 获取所有id号 -->
+  <select id="v362-getIdsBydate" parameterType="java.lang.String"
+    resultType="java.math.BigInteger">
+    SELECT id FROM v362_testdata WHERE date=#{date}
+  </select>
+  <!-- 获取对应id的测试数据 -->
+  <select id="v362-getTestDataById"
+    parameterType="java.math.BigInteger" resultType="V362TestData">
+    SELECT * FROM
+    v362_testdata WHERE id=#{id}
+  </select>
+  <!-- 插入一条测试数据 -->
+  <insert id="v362-insertTestData" parameterType="V362TestData">
+    INSERT INTO
+    v362_testdata(product_num, num, items, upper, lower, value,
+    unit,
+    result, times, date, remark)
+    VALUES(#{number}, #{xuhao}, #{items},
+    #{upper}, #{lower}, #{testValue}, #{unit},
+    #{result}, #{times},
+    #{date}, #{remark})
+  </insert>
+
+</mapper>

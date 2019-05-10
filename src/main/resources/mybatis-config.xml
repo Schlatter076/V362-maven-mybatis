@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!--加载连接数据库的基本信息文件 -->
+	<properties resource="jdbc.properties"></properties>
+	<!-- 为类取别名 -->
+	<typeAliases>
+
+	<!-- <typeAlias alias="User" type="org.loyer.beans.User" /> <typeAlias alias="ProductType" 
+		type="org.loyer.beans.ProductType" /> <typeAlias alias="V362" type="org.loyer.beans.V362" 
+		/> <typeAlias alias="V362ProductNum" type="org.loyer.beans.V362ProductNum" 
+		/> <typeAlias alias="V362Recordtd" type="org.loyer.beans.V362Recordtd" /> 
+		<typeAlias alias="V362TestData" type="org.loyer.beans.V362TestData" /> -->
+		
+		<package name="org.loyer.beans"/>
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="mapper/productType-mapper.xml" />
+		<mapper resource="mapper/user-mapper.xml" />
+		<mapper resource="mapper/v362-mapper.xml" />
+		<mapper resource="mapper/v362ProductNum-mapper.xml" />
+		<mapper resource="mapper/v362Record-mapper.xml" />
+		<mapper resource="mapper/v362TestData-mapper.xml" />
+	</mappers>
+</configuration>

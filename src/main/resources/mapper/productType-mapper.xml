@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+
+  <!-- 获取全部产品型号 -->
+  <select id="selectAllProductType" resultType="ProductType">
+    SELECT * FROM
+    product_type
+  </select>
+  <!-- 根据编号获取产品型号 -->
+  <select id="selectProductTypeByNum"
+    parameterType="java.lang.Integer" resultType="ProductType">
+    SELECT * FROM
+    product_type WHERE num=#{num}
+  </select>
+
+</mapper>
